@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+accidents.db
+uploads/*
+!uploads/.gitkeep
+outputs/*
+!outputs/.gitkeep
+models/*
+!models/.gitkeep
+!models/best.pt
+data/
+runs/
+*.mp4
+*.ipynb
+yolov8s.pt
+Accident-Detection-Model/

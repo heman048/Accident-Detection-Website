@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeRoad AI | Accident Detection</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><div><b>SafeRoad AI</b><small>ACCIDENT MONITOR</small></div></div>
+    <nav>
+      <button class="nav-link active" data-page="dashboard">▦ <span>Dashboard</span></button>
+      <button class="nav-link" data-page="image">▧ <span>Image Detection</span></button>
+      <button class="nav-link" data-page="video">▷ <span>Video Detection</span></button>
+      <button class="nav-link" data-page="history">◷ <span>Accident History</span></button>
+      <button class="nav-link" data-page="alerts">♧ <span>Emergency Alerts</span></button>
+    </nav>
+    <div class="sidebar-note"><div class="status-dot"></div><span>AI service interface</span></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><div class="eyebrow">INTELLIGENT ROAD SAFETY</div><h1 id="page-title">Dashboard</h1></div>
+      <div class="top-right"><span class="live-dot"></span> Local system <span class="avatar">SR</span></div>
+    </header>
+
+    <section id="dashboard" class="page active">
+      <div class="welcome"><div><p class="eyebrow light">SAFER ROADS START WITH EARLY DETECTION</p><h2>Accident Detection<br> & Response Centre</h2><p>Analyse road images and videos with an AI-powered detection model.</p></div><div class="hero-icon">⌁</div></div>
+      <div class="stat-grid">
+        <article class="stat-card"><span class="stat-icon blue">▣</span><small>Total Analyses</small><strong id="stat-total">0</strong><em>Images + videos</em></article>
+        <article class="stat-card"><span class="stat-icon red">⚠</span><small>Accidents Detected</small><strong id="stat-accidents">0</strong><em>Requires review</em></article>
+        <article class="stat-card"><span class="stat-icon green">✓</span><small>No Accident</small><strong id="stat-safe">0</strong><em>No detections returned</em></article>
+        <article class="stat-card"><span class="stat-icon amber">♧</span><small>Pending Alerts</small><strong id="stat-alerts">0</strong><em>Awaiting review</em></article>
+      </div>
+      <div class="section-heading"><div><h3>Quick actions</h3><p>Start a new analysis</p></div></div>
+      <div class="quick-grid">
+        <button class="quick-card" data-go="image"><span>▧</span><b>Analyse an image</b><small>Upload JPG or PNG</small><i>→</i></button>
+        <button class="quick-card" data-go="video"><span>▷</span><b>Analyse a video</b><small>Upload MP4 or AVI</small><i>→</i></button>
+        <button class="quick-card" data-go="history"><span>◷</span><b>View history</b><small>Review past analyses</small><i>→</i></button>
+      </div>
+      <div class="section-heading"><div><h3>Recent activity</h3><p>Latest detection results</p></div><button class="text-button" data-go="history">View all →</button></div>
+      <div class="table-wrap"><table><thead><tr><th>File</th><th>Type</th><th>Status</th><th>Date</th></tr></thead><tbody id="recent-body"><tr><td colspan="4" class="empty">No analyses yet.</td></tr></tbody></table></div>
+    </section>
+
+    <section id="image" class="page">
+      <div class="section-heading"><div><h3>Image accident detection</h3><p>Upload a road image for AI analysis.</p></div></div>
+      <div class="upload-panel">
+        <label class="dropzone" for="image-file"><span class="upload-icon">↑</span><b>Choose an image to analyse</b><small>JPG, JPEG, PNG, BMP or WEBP</small><span class="file-name" id="image-name">No file selected</span></label>
+        <input id="image-file" type="file" accept="image/*" hidden>
+        <button class="primary-btn" id="image-submit">Run image detection</button>
+      </div>
+      <div id="image-result" class="result-panel hidden"></div>
+    </section>
+
+    <section id="video" class="page">
+      <div class="section-heading"><div><h3>Video accident detection</h3><p>Upload a road video. Processing time depends on video length and computer performance.</p></div></div>
+      <div class="upload-panel">
+        <label class="dropzone" for="video-file"><span class="upload-icon">↑</span><b>Choose a video to analyse</b><small>MP4, AVI, MOV or MKV · Maximum 150 MB</small><span class="file-name" id="video-name">No file selected</span></label>
+        <input id="video-file" type="file" accept="video/*" hidden>
+        <button class="primary-btn" id="video-submit">Run video detection</button>
+      </div>
+      <div id="video-result" class="result-panel hidden"></div>
+    </section>
+
+    <section id="history" class="page">
+      <div class="section-heading"><div><h3>Accident history</h3><p>All image and video analysis records.</p></div><button class="text-button" id="history-refresh">↻ Refresh</button></div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>File</th><th>Type</th><th>Result</th><th>Detections / frames</th><th>Date</th></tr></thead><tbody id="history-body"><tr><td colspan="6" class="empty">Loading...</td></tr></tbody></table></div>
+    </section>
+
+    <section id="alerts" class="page">
+      <div class="section-heading"><div><h3>Emergency alerts</h3><p>Potential incidents generated by the detection model.</p></div><button class="text-button" id="alerts-refresh">↻ Refresh</button></div>
+      <div id="alerts-list" class="alert-list"><div class="empty">Loading alerts...</div></div>
+      <p class="disclaimer">Important: These are review notifications only. This demo does not contact emergency services or automatically dispatch help. A human operator must verify every alert.</p>
+    </section>
+    <footer>SafeRoad AI · Academic project prototype · Detection results require human verification.</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
